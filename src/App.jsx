@@ -297,8 +297,8 @@ export default function App() {
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20, padding: "12px 16px", borderRadius: 10, background: `linear-gradient(135deg, ${T.purple}08, ${T.accent}08)`, border: `1px solid ${T.purple}20` }}>
         <span style={{ fontSize: 20 }}>🧠</span>
         <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: T.purple }}>Powered by Claude LLM</div>
-          <div style={{ fontSize: 11, color: T.t2 }}>Each case is analyzed by Claude Sonnet for semantic classification, entity extraction, risk assessment, and intelligent routing — not keyword matching.</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: T.purple }}>Powered by Azure LLM</div>
+          <div style={{ fontSize: 11, color: T.t2 }}>Each case is analyzed by Azure OpenAI for semantic classification, entity extraction, risk assessment, and intelligent routing — not keyword matching.</div>
         </div>
       </div>
 
@@ -311,7 +311,7 @@ export default function App() {
           <textarea style={S.textarea} placeholder="Describe the issue in detail — include affected systems, symptoms, timeline, impact scope..." value={desc} onChange={e => setDesc(e.target.value)} rows={4} />
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <button style={{ ...S.btnPrimary, opacity: title && desc ? 1 : 0.4 }} onClick={handleSubmit} disabled={!title || !desc || state.agentPhase === "running"}>
-              {state.agentPhase === "running" ? <><Spinner /> Classifying...</> : <>🚀 Classify with Claude</>}
+              {state.agentPhase === "running" ? <><Spinner /> Classifying...</> : <>🚀 Classify with Azure</>}
             </button>
           </div>
         </div>
@@ -614,7 +614,7 @@ export default function App() {
           <div style={{ width: 32, height: 32, borderRadius: 8, background: "linear-gradient(135deg, #2563eb, #7c3aed)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800, color: "#fff" }}>AI</div>
           <div>
             <div style={{ fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em" }}>Case Classification Agent</div>
-            <div style={{ fontSize: 10, color: T.t3 }}>LLM-Powered • Claude Sonnet</div>
+            <div style={{ fontSize: 10, color: T.t3 }}>LLM-Powered • Azure OpenAI</div>
           </div>
         </div>
         <div style={{ display: "flex", gap: 3 }}>
