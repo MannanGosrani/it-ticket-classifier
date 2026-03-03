@@ -56,25 +56,20 @@ You MUST respond with ONLY a valid JSON object (no markdown, no backticks, no pr
 }`;
 
 async function classifyWithLLM(title, description) {
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetch("/api/classify", {
     method: "POST",
-    headers: { 
-      "Content-Type": "application/json",
-      "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY || "",
-      "anthropic-version": "2023-06-01"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1000,
-      system: SYSTEM_PROMPT,
-      messages: [
-        {
-          role: "user",
-          content: `Classify this support case:\n\nTITLE: ${title}\n\nDESCRIPTION: ${description}`
-        }
-      ],
+      title,
+      description,
+      systemPrompt: SYSTEM_PROMPT
     }),
   });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error?.message || 'Classification failed');
+  }
 
   const data = await response.json();
   const text = data.content?.map(b => b.text || "").join("") || "";
