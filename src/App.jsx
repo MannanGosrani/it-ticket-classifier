@@ -201,7 +201,7 @@ export default function App() {
     await sleep(300);
 
     // Step 3: LLM call
-    addStep("🧠", "Sending to Claude LLM for deep semantic analysis...", "llm");
+    addStep("🧠", "Sending to Azure OpenAI LLM for deep semantic analysis...", "llm");
     await sleep(200);
 
     try {
