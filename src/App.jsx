@@ -148,11 +148,11 @@ const Ring = ({ value, size = 52, stroke = 3.5, color }) => {
   const c = 2 * Math.PI * r;
   return (
     <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
-      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="#1e293b" strokeWidth={stroke} />
-      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke={color} strokeWidth={stroke}
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#1e293b" strokeWidth={stroke} />
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={stroke}
         strokeDasharray={c} strokeDashoffset={c - (value / 100) * c} strokeLinecap="round"
         style={{ transition: "stroke-dashoffset 0.8s cubic-bezier(.4,0,.2,1)" }} />
-      <text x={size/2} y={size/2} textAnchor="middle" dy=".35em" fill={color}
+      <text x={size / 2} y={size / 2} textAnchor="middle" dy=".35em" fill={color}
         style={{ fontSize: 12, fontWeight: 700, transform: "rotate(90deg)", transformOrigin: "center" }}>
         {value}%
       </text>
@@ -367,7 +367,7 @@ export default function App() {
             ))}
             {state.agentPhase === "running" && (
               <div style={{ padding: "9px 12px", display: "flex", alignItems: "center", gap: 8, color: T.t2, fontSize: 12 }}>
-                <Spinner /> Waiting for Claude response...
+                <Spinner /> Waiting for agent response...
               </div>
             )}
           </div>
